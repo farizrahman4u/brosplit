@@ -106,14 +106,6 @@ def apply_random_mask(matrix, random_mask):
 def evolve(matrix, rules):
     apply_random_mask(matrix, get_random_mask(get_score_matrix(matrix, rules)))
 
-def _evolve(matrix, rules):
-    window_sizes = list(range(1, len(matrix) + 1))
-    for window_size in window_sizes:
-        for i in range(0, len(matrix) - window_size + 1):
-            window = matrix[i: i + window_size]
-            _evolve(window, rules)
-
-
 def print_schedule(matrix):
     schedule = devectorize(matrix)
     out = ''
